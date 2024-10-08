@@ -63,6 +63,32 @@
   },
   {
     "ContainingType": "UserApi.Controllers.UserController",
+    "Method": "GetById",
+    "RelativePath": "users/{azon}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "azon",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "UserApi.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserApi.Controllers.UserController",
     "Method": "Put",
     "RelativePath": "users/{azon}",
     "HttpMethod": "PUT",
