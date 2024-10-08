@@ -54,5 +54,23 @@ namespace UserApi.Controllers
                 return StatusCode(200, existingUser);
             }
         }
+
+        [HttpDelete]
+        public ActionResult<object> Delete(Guid azon)
+        {
+            using (var context = new UserDbContext())
+            {
+                var user = context.NewUser.FirstOrDefault(x => x.Id == azon);
+
+                if (user != null)
+                {
+                    context.NewUser.Remove(user);
+                    context.SaveChanges();
+                    return StatusCode(200, new { message = "Sikeres törlés!" });
+                }
+
+            }
+            return StatusCode(404, new { message = "Nincs ilyen felhasználó!" });
+        }
     }
 }

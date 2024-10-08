@@ -47,6 +47,22 @@
   },
   {
     "ContainingType": "UserApi.Controllers.UserController",
+    "Method": "Delete",
+    "RelativePath": "users",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "azon",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserApi.Controllers.UserController",
     "Method": "Put",
     "RelativePath": "users/{azon}",
     "HttpMethod": "PUT",
