@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using UserApi.Models;
+using static UserApi.Models.Dto;
 
 namespace UserApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("users")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -14,7 +15,44 @@ namespace UserApi.Controllers
             {
                 return StatusCode(201, context.NewUser.ToList());
             }
+        }
 
+        [HttpPost]
+        public ActionResult<User> Post(CreateUserDto createUserDto)
+        {
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                Name = createUserDto.Name,
+                Age = createUserDto.Age,
+                License = createUserDto.License
+            };
+
+            using (var context = new UserDbContext())
+            {
+                context.NewUser.Add(user);
+                context.SaveChanges();
+
+                return StatusCode(201, user);
+            }
+        }
+
+        [HttpPut("{azon}")]
+        public ActionResult<User> Put(Guid azon, UpdateUserDto updateUserDto)
+        {
+            using (var context = new UserDbContext())
+            {
+                var existingUser = context.NewUser.FirstOrDefault(x => x.Id == azon);
+
+                existingUser.Name = updateUserDto.Name;
+                existingUser.Age = updateUserDto.Age;
+                existingUser.License = updateUserDto.License;
+
+                context.NewUser.Update(existingUser);
+                context.SaveChanges();
+
+                return StatusCode(200, existingUser);
+            }
         }
     }
 }
