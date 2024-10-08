@@ -118,3 +118,4 @@ C:\Users\farka\Git\UserApi\UserApi\obj\Debug\net8.0\refint\UserApi.dll
 C:\Users\farka\Git\UserApi\UserApi\obj\Debug\net8.0\UserApi.pdb
 C:\Users\farka\Git\UserApi\UserApi\obj\Debug\net8.0\UserApi.genruntimeconfig.cache
 C:\Users\farka\Git\UserApi\UserApi\obj\Debug\net8.0\ref\UserApi.dll
+C:\Users\farka\Git\UserApi\UserApi\obj\Debug\net8.0\UserApi.sourcelink.json

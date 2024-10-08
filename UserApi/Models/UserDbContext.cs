@@ -4,6 +4,7 @@ namespace UserApi.Models
 {
     public class UserDbContext : DbContext
     {
+        public DbSet<User> NewUser { get; set; } = null!;
         public UserDbContext() { }
 
         public UserDbContext(DbContextOptions options) : base(options)
@@ -21,6 +22,6 @@ namespace UserApi.Models
             }
         }
 
-        public DbSet<User> NewUser { get; set; } = null!;
+
     }
 }
